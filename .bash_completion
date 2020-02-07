@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+if [ -d ~/.bash_completion.d ]; then
+    for f in $(find ~/.bash_completion.d/* -type f); do
+        source "$f"
+    done
+fi
+
+if command -v terraform > /dev/null; then
+    complete -C terraform terraform
+    complete -C terraform tf
+fi
